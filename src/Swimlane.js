@@ -6,9 +6,7 @@ import Dragula from 'dragula';
 export default class Swimlane extends React.Component {
   componentDidMount() {
     let columns = document.querySelectorAll(".Swimlane-dragColumn")
-    columns.forEach((item) => {
-      Dragula([item]);
-    });
+      Dragula([...columns]);
   }
   render() {
     const cards = this.props.clients.map(client => {
