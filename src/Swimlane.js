@@ -1,8 +1,15 @@
 import React from 'react';
 import Card from './Card';
 import './Swimlane.css';
+import Dragula from 'dragula';
 
 export default class Swimlane extends React.Component {
+  componentDidMount() {
+    let columns = document.querySelectorAll(".Swimlane-dragColumn")
+    columns.forEach((item) => {
+      Dragula([item]);
+    });
+  }
   render() {
     const cards = this.props.clients.map(client => {
       return (
@@ -15,6 +22,7 @@ export default class Swimlane extends React.Component {
         />
       );
     })
+
     return (
       <div className="Swimlane-column">
         <div className="Swimlane-title">{this.props.name}</div>
